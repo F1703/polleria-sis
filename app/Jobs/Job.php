@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace polleria\Jobs;
 
 use Illuminate\Bus\Queueable;
 

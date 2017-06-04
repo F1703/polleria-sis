@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace polleria\Events;
 
 abstract class Event
 {

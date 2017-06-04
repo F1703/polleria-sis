@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace polleria\Http\Controllers\Auth;
 
-use App\User;
+use polleria\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use polleria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
