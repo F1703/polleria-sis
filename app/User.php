@@ -1,6 +1,6 @@
 <?php
 
-namespace polleria;
+namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

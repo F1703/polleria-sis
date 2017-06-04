@@ -1,6 +1,6 @@
 <?php
 
-namespace polleria\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

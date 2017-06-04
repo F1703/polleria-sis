@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        polleria\Providers\AppServiceProvider::class,
-        polleria\Providers\AuthServiceProvider::class,
-        polleria\Providers\EventServiceProvider::class,
-        polleria\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 

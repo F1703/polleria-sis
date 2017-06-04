@@ -20,7 +20,7 @@
             "database"
         ],
         "psr-4": {
-            "polleria\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
