@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Redirect;
 use polleria\Http\Requests\PersonaFormRequest;
 use DB;
 
-class ClienteController extends Controller
+
+
+class ProveedorController extends Controller
 {
     //
     public function __constructor(){
@@ -22,21 +24,21 @@ class ClienteController extends Controller
         $query= trim($request->get('searchText'));
         $personas=DB::table('persona')
           ->where('nombre','like','%'.$query.'%')
-          ->where('tipo_persona','=','cliente')
+          ->where('tipo_persona','=','proveedor')
           ->orwhere('num_documento','like','%'.$query.'%')
-          ->where('tipo_persona','=','cliente')
+          ->where('tipo_persona','=','proveedor')
           ->orderby('idpersona','desc')
           ->paginate(9)
           ;
-          return view('ventas.cliente.index',['personas'=>$personas,'searchText'=>$query]);
+          return view('compras.proveedor.index',['personas'=>$personas,'searchText'=>$query]);
       }
     }
     public function create(){
-      return view('ventas.cliente.create');
+      return view('compras.proveedor.create');
     }
     public function store(PersonaFormRequest $request){
       $persona= new Persona;
-      $persona->tipo_persona = 'cliente';
+      $persona->tipo_persona = 'proveedor';
       $persona->nombre= $request->get('nombre');
       $persona->tipo_documento= $request->get('tipo_documento');
       $persona->num_documento= $request->get('num_documento');
@@ -44,15 +46,15 @@ class ClienteController extends Controller
       $persona->telefono= $request->get('telefono');
       $persona->email= $request->get('email');
       $persona->save();
-      return Redirect::to('ventas/cliente');
+      return Redirect::to('compras/proveedor');
 
     }
 
     public function show($id){
-      return view('ventas.cliente.show',['persona'=>Persona::findOrFail($id)]);
+      return view('compras.proveedor.show',['persona'=>Persona::findOrFail($id)]);
     }
     public function edit($id){
-      return view('ventas.cliente.edit',['persona'=>Persona::findOrFail($id)]);
+      return view('compras.proveedor.edit',['persona'=>Persona::findOrFail($id)]);
 
     }
     public function update(PersonaFormRequest $request, $id){
@@ -64,7 +66,7 @@ class ClienteController extends Controller
       $persona->telefono= $request->get('telefono');
       $persona->email= $request->get('email');
       $persona->save();
-      return Redirect::to('ventas/cliente');
+      return Redirect::to('compras/proveedor');
     }
 
 
@@ -72,18 +74,6 @@ class ClienteController extends Controller
       $persona = Persona::findOrFail($id);
       $persona->tipo_persona="Inactivo";
       $persona->update();
-      return Redirect::to('ventas/cliente');
+      return Redirect::to('compras/proveedor');
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
