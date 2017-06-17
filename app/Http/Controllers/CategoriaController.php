@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace polleria\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ use DB;
 class CategoriaController extends Controller
 {
     //
-    public function __constructor(){
+    public function __construct(){
 
     }
 

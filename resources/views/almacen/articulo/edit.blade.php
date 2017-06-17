@@ -25,7 +25,7 @@
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <div class="form-group">
-        <label for="">Categoria</label>
+        <label for="categoria">Categoria</label>
         <select class="form-control" name="idcategoria">
           @foreach ($categorias as $categoria)
             @if ($categoria->idcategoria ==$articulo->idcategoria)
@@ -55,7 +55,20 @@
         <input type="text" name="descripcion" value="{{$articulo->descripcion}}" required class="form-control">
       </div>
     </div>
-
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="form-group">
+        <label for="estado">Estado</label>
+        <select class="form-control" name="estado">
+          @if ($articulo->estado=='Inactivo')
+            <option selected value="Inactivo">Inactivo</option>
+            <option value="Activo">Activo</option>
+          @else
+            <option value="Inactivo">Inactivo</option>
+            <option selected value="Activo">Activo</option>
+          @endif
+        </select>
+      </div>
+    </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
       <div class="form-group">
         <label for="imagen">Imagen</label>

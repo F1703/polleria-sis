@@ -13,7 +13,7 @@ use DB;
 class ClienteController extends Controller
 {
     //
-    public function __constructor(){
+    public function __construct(){
 
     }
 

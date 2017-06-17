@@ -15,7 +15,7 @@ use DB;
 class ProveedorController extends Controller
 {
     //
-    public function __constructor(){
+    public function __construct(){
 
     }
 

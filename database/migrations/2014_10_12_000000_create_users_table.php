@@ -20,6 +20,18 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+
+
+// TRIGGERS PARA LA DATABASE
+// use polleriasis;
+// DELIMITER //
+// CREATE TRIGGER trigger_stockventa AFTER INSERT ON detalle_venta
+// FOR EACH ROW BEGIN
+// UPDATE articulo SET stock=stock-NEW.cantidad
+// WHERE articulo.idarticulo=NEW.idarticulo;
+// end
+
     }
 
     /**

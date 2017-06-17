@@ -13,8 +13,8 @@ use DB;
 class ArticuloController extends Controller
 {
     //
-    public function __constructor(){
-
+    public function __construct(){
+      $this->middleware('auth');
     }
 
     public function index(Request $request){
@@ -72,6 +72,7 @@ class ArticuloController extends Controller
       $articulo->nombre=$request->get('nombre');
       $articulo->stock=$request->get('stock');
       $articulo->descripcion=$request->get('descripcion');
+      $articulo->estado= $request->get('estado');
       if (Input::hasFile('imagen')) {
         $file=Input::file('imagen');
         $file->move(public_path().'/imagenes/articulos',$file->getClientOriginalName());
