@@ -13,9 +13,11 @@
 
 $factory->define(polleria\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+      // 'name' => $faker->name,
+        'name' => 'franco',
+        // 'email' => $faker->safeEmail,
+        'email' => 'franco@gmail.com',
+        'password' => bcrypt('franco'),
         'remember_token' => str_random(10),
     ];
 });
