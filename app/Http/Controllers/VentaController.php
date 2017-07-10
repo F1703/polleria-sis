@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Input;
 use polleria\Http\Requests\VentaForRequest;
 use polleria\Venta;
 use polleria\DetalleVenta;
+use polleria\Articulo;
 use DB;
 
 use Carbon\Carbon;
@@ -44,7 +45,8 @@ class VentaController extends Controller
       $personas=DB::table('persona')->where('tipo_persona','=','cliente')->get();
       $articulos=DB::table('articulo as art')
       ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
-      ->select(DB::raw('CONCAT(art.codigo, " ", art.nombre) as articulo'), 'art.idarticulo','art.stock',DB::raw('avg(di.precio_venta) as precio_promedio'))
+      // ->select(DB::raw('CONCAT(art.codigo, " ", art.nombre) as articulo'), 'art.idarticulo','art.stock',DB::raw('avg(di.precio_venta)  as precio_promedio'))
+      ->select(DB::raw('CONCAT(art.codigo, " ", art.nombre) as articulo'), 'art.idarticulo','art.stock','di.precio_venta as precio_promedio')
       ->where('art.estado','=','activo')
       ->where('art.stock','>',"0")
       ->groupBy('articulo','art.idarticulo','art.stock')
@@ -73,8 +75,8 @@ class VentaController extends Controller
         $descuento = $request->get('descuento');
         $precio_venta=$request->get('precio_venta');
 
-        $cont = 0;
 
+        $cont = 0;
         while ($cont < count($idarticulo) ) {
           $detalle=new DetalleVenta();
           $detalle->idventa=$venta->idventa;
@@ -83,6 +85,13 @@ class VentaController extends Controller
           $detalle->descuento=$descuento[$cont];
           $detalle->precio_venta=$precio_venta[$cont];
           $detalle->save();
+          $cont=$cont+1;
+        }
+        $cont=0;
+        while($cont<count($idarticulo)){
+          $articulo= Articulo::findOrfail($idarticulo[$cont]);
+          $articulo->stock = $articulo->stock - $cantidad[$cont];
+          $articulo->save();
           $cont=$cont+1;
         }
         DB::commit();

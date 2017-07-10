@@ -155,21 +155,23 @@
 
       function mostrarValores(){
         datosart=document.getElementById('pidarticulo').value.split('_');
-        $("#pprecio_venta").val(datosart[2]);
         $("#pstock").val(datosart[1]);
+        $("#pprecio_venta").val(datosart[2]);
       }
 
       function agregar(){
-        datosart=document.getElementById('pidarticulo').value.split('_');
-
+         datosart=document.getElementById('pidarticulo').value.split('_');
+        //  alert(datosart);
           idarticulo=datosart[0];
           articulo=$("#pidarticulo option:selected").text();
           cantidad=$("#pcantidad").val();
-          descuento=$("#pdescuento").val();
+          // descuento=$("#pdescuento").val();
+          descuento =0;
           stock=$("#pstock").val();
           precio_venta=$("#pprecio_venta").val();
-          if (idarticulo!="" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!="") {
-            if (stock>=cantidad) {
+          // if (idarticulo!="" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!="") {
+          // if(cantidad<stock){
+            if (parseInt(cantidad)<=parseInt(stock) && parseInt(cantidad)>0) {
               subtotal[contador]=(cantidad*precio_venta-descuento);
               total=total+subtotal[contador];
               var fila='<tr class="selected" id="fila'+contador+'"> '+
@@ -187,18 +189,18 @@
               evaluar();
               $("#detalles").append(fila);
             }else{
-              alert('La cantidad a vender supera el stock.');
+              alert('La cantidad a vender supera el stock. O no se especifico la cantidad');
             }
-          }
-          else{
-            alert("Error al ingresar el detalle de la venta.");
-          }
+          // }
+          // else{
+          //   alert("Error al ingresar el detalle de la venta.");
+          // }
       }
 
       function limpiar(){
         $("#pcantidad").val("");
         $("#pdescuento").val("");
-        $("#pprecio_venta").val("");
+        // $("#pprecio_venta").val("");
       }
       function evaluar(){
         if(total>0){
