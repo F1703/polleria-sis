@@ -11,7 +11,7 @@ use polleria\Http\Requests\VentaForRequest;
 use polleria\Venta;
 use polleria\DetalleVenta;
 use polleria\Articulo;
-use DB;
+use DB as DB;
 
 use Carbon\Carbon;
 use Response;

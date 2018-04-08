@@ -1,20 +1,21 @@
 <?php
 
 namespace polleria;
+// namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    protected $table="users";
-    protected $primaryKey="id";
+    protected $table='users';
+    protected $primaryKey='id';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
 
     /**

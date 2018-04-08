@@ -1,16 +1,17 @@
 <?php
 
 namespace polleria;
+// namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
     //
-    protected $table= "venta";
-    protected $primaryKey ="idventa";
+    protected $table= 'venta';
+    protected $primaryKey ='idventa';
 
-    protected $filable = [
+    protected $fillable = [
       'idcliente',
       'tipo_comprobante',
       'serie_comprobante',

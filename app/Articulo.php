@@ -10,6 +10,6 @@ class Articulo extends Model
   protected $table= "articulo";
   protected $primaryKey ="idarticulo";
 
-  protected $filable = ['idcategoria','codigo','nombre','stock','descripcion','imagen','estado'];
+  protected $fillable = ['idcategoria','codigo','nombre','stock','descripcion','imagen','estado'];
 
 }
