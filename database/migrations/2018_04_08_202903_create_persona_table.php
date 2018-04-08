@@ -17,7 +17,7 @@ class CreatePersonaTable extends Migration
             $table->increments('idpersona');
             $table->string('tipo_persona');
             $table->string('nombre');
-            $table->string('tip_documento');
+            $table->string('tipo_documento');
             $table->string('num_documento');
             $table->string('direccion');
             $table->string('telefono');
