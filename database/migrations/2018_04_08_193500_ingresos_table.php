@@ -17,6 +17,7 @@ class IngresosTable extends Migration
             $table->increments('idingreso');
             $table->float('total_ingreso');
             $table->date('fecha');
+            $table->string('estado');
             $table->integer('idproveedor')->unsigned();
             $table->foreign('idproveedor')->references('idproveedor')->on('proveedors')->ondelete('cascade');
             $table->timestamps();

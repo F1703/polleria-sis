@@ -17,10 +17,11 @@ class VentasTable extends Migration
             $table->increments('idventa');
             $table->float('total_venta');
             $table->date('fecha');
+            $table->string('estado');
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

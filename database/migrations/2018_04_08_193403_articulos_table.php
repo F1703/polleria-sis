@@ -21,8 +21,8 @@ class ArticulosTable extends Migration
             $table->integer('stock');
             $table->string('estado');
             $table->string('imagen');
-            $table->integer('localidad_id')->unsigned();
-            $table->foreign('localidad_id')->references('id')->on('localidads')->ondelete('cascade');
+            $table->integer('idcategoria')->unsigned();
+            $table->foreign('idcategoria')->references('idcategoria')->on('idcategoria')->ondelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,7 +16,6 @@ class CuentasTable extends Migration
         {
             $table->increments('idcuenta');
             $table->float('saldo');
-            $table->string('imagen');
             $table->integer('idcliente')->unsigned();
             $table->foreign('idcliente')->references('id')->on('clientes')->ondelete('cascade');
             $table->timestamps();

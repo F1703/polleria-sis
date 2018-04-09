@@ -11,11 +11,11 @@ class DetalleIngreso extends Model
     protected $primaryKey ="iddetalle_ingreso";
 
     protected $filable = [
-      // 'nombre',
+       'cantidad',
       'idarticulo',
       'idingreso',
       'cantidad',
       'precio_compra',
       'precio_venta'
-    ];
+    ]; 
 }
