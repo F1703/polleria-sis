@@ -18,5 +18,8 @@ class Proveedor extends Model
       'email',
       'estado'
     ];
-
+    public function ingreso()
+    {
+        return $this->belongsTo('App\Ingreso');
+    }
 }

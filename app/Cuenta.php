@@ -15,5 +15,12 @@ class Cuenta extends Model
   'saldo',
   'idventa'
   ];
-
+    public function cliente()
+    {
+        return $this->belongsTo('App\Cliente');
+    }
+    public function venta()
+    {
+        return $this->belongsToMany('App\Venta');
+    }
 }

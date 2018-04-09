@@ -17,4 +17,13 @@ class DetalleVenta extends Model
       'precio_venta',
       'descuento'
     ];
+
+    public function articulo()
+    {
+        return $this->hasOne('App\Articulo');
+    }
+    public function venta()
+    {
+        return $this->belongsTo('App\Venta');
+    }
 }

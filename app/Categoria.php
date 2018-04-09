@@ -12,4 +12,9 @@ class Categoria extends Model
 
     protected $filable = ['nombre','descripcion','condicion'];
 
+
+    public function articulo()
+    {
+        return $this->hasMany('App\Articulo');
+    }
 }

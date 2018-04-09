@@ -18,4 +18,12 @@ class DetalleIngreso extends Model
       'precio_compra',
       'precio_venta'
     ]; 
+    public function articulo()
+    {
+        return $this->hasOne('App\Articulo');
+    }
+    public function ingreso()
+    {
+        return $this->belongsTo('App\Ingreso');
+    }
 }

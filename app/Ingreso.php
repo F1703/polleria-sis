@@ -16,4 +16,13 @@ class Ingreso extends Model
       'total_ingreso',
       'estado'
     ];
+
+    public function detalleIngreso()
+    {
+        return $this->hasMany('App\DetalleIngreso');
+    }
+    public function proveedor()
+    {
+        return $this->hasOne('App\Proveedor');
+    }
 }

@@ -16,4 +16,12 @@ class Venta extends Model
       'total_venta',
       'estado'
     ];
+    public function detalleVenta()
+    {
+        return $this->hasMany('App\DetalleVenta');
+    }
+    public function cuenta()
+    {
+        return $this->belongsToMany('App\Cuenta');
+    }
 }

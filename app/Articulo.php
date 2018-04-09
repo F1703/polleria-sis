@@ -20,4 +20,16 @@ class Articulo extends Model
   'estado'
   ];
 
+    public function categoria()
+    {
+        return $this->belongsTo('App\Articulo');
+    }
+    public function detalleVenta()
+    {
+        return $this->belongsTo('App\DetalleVenta');
+    }
+    public function detalleIngreso()
+    {
+        return $this->belongsTo('App\DetalleIngreso');
+    }
 }
