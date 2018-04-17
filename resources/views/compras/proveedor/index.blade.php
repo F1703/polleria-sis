@@ -14,9 +14,8 @@
         <table class="table table-striped table-condensed table-hover table-bordered">
           <thead>
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Tipo Doc.</th>
-            <th>Nun Doc.</th>
+            <th>Razon Social</th>
+            <th>CUIT.</th>
             <th>Telefono</th>
             <th>Email</th>
 
@@ -24,15 +23,14 @@
           </thead>
           @foreach ($personas as $per)
             <tr>
-              <td>{{$per->idpersona}}</td>
-              <td>{{$per->nombre}}</td>
-              <td>{{$per->tipo_documento}}</td>
-              <td>{{$per->num_documento}}</td>
+              <td>{{$per->idproveedor}}</td>
+              <td>{{$per->razonsocial}}</td>
+              <td>{{$per->cuit}}</td>
               <td>{{$per->telefono}}</td>
               <td>{{$per->email}}</td>
               <td>
-                <a href="{{URL::action('ProveedorController@edit',$per->idpersona)}}"><button class="btn btn-info">Editar</button></a>
-                <a href="" data-target="#modal-delete-{{$per->idpersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                <a href="{{URL::action('ProveedorController@edit',$per->idproveedor)}}"><button class="btn btn-info">Editar</button></a>
+                <a href="" data-target="#modal-delete-{{$per->idproveedor}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
               </td>
             </tr>
             @include('compras.proveedor.modal')

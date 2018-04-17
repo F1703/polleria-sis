@@ -24,36 +24,13 @@
           <label for="proveedor">Proveedor</label>
           <select class="form-control selectpicker" data-live-search="true" name="idproveedor" id="idproveedor">
             @foreach ($personas as $persona)
-              <option value="{{$persona->idpersona}}">{{$persona->nombre  }}</option>
+              <option value="{{$persona->idproveedor}}">{{$persona->razonsocial  }}</option>
             @endforeach
           </select>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="tip_comprobante">Comprobante</label>
-          <select class="form-control" name="tipo_comprobante">
-            <option value="Boleta">Boleta</option>
-            <option value="Factura">Factura</option>
-            <option value="Tikect">Tikect</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="serie_comprobante">Serie Comprobante</label>
-          <input type="text" name="serie_comprobante" value="{{old('serie_comprobante')}}" class="form-control" placeholder="serie comprobante ...">
-        </div>
-      </div>
 
-
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="num_comprobante">Num Comprobante</label>
-          <input type="text" name="num_comprobante" value="{{old('num_comprobante')}}" class="form-control" placeholder="num comprobante ..." required >
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="panel panel-primary">
@@ -94,7 +71,7 @@
               <button type="button" id="bt_add" class="btn btn-primary">Agregar</button>
             </div>
           </div>
-
+ 
           <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
             <table class="table table-striped table-bordered table-condensed table-hover" id="detalles">
               <thead style="background-color:#A9D0F5">
@@ -111,7 +88,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th><h4 id="total">$ 0.00</h4></th>
+                <th><h4 id="total">$ 0.00</h4><input type="hidden" name="total_ingreso" id="total_ingreso" ></th>
               </tfoot>
               <tbody>
 
@@ -165,6 +142,7 @@
             contador++;
             limpiar();
             $("#total").html("$ "+total);
+            $("#total_ingreso").val(total);
             evaluar();
             $("#detalles").append(fila);
           }

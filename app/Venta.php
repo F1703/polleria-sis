@@ -1,6 +1,4 @@
-<?php
-
-namespace polleria;
+<?php namespace polleria;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,8 +9,8 @@ class Venta extends Model
     protected $primaryKey ="idventa";
 
     protected $filable = [
-      'idcliente',
-      'fecha_hora',
+     // 'idcliente',
+      'fecha',
       'total_venta',
       'estado'
     ];
@@ -22,6 +20,7 @@ class Venta extends Model
     }
     public function cuenta()
     {
-        return $this->belongsToMany('App\Cuenta');
-    }
+
+        return $this->belongsToMany('polleria\Cuenta');
+    } 
 }

@@ -21,8 +21,8 @@
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <div class="form-group">
-          <label for="nombre">Nombre</label>
-          <input type="text" name="nombre" value="{{old('nombre')}}" required class="form-control" placeholder="Nombre ...">
+          <label for="razonsocial">Razon Social</label>
+          <input type="text" name="razonsocial" value="{{old('razonsocial')}}" required class="form-control" placeholder="Razon Social ...">
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -34,20 +34,11 @@
 
 
 
+
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <div class="form-group">
-          <label for="">Documento</label>
-          <select class="form-control" name="tipo_documento">
-            <option value="DNI">DNI</option>
-            <option value="RUC">RUC</option>
-            <option value="PAS">PAS</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <div class="form-group">
-          <label for="num_documento">Documento</label>
-          <input type="text" name="num_documento" value="{{old('num_documento')}}" class="form-control" placeholder="Documento ...">
+          <label for="cuit">CUIT</label>
+          <input type="text" name="cuit" value="{{old('cuit')}}" class="form-control" placeholder="CUIT ...">
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

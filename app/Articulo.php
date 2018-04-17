@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Articulo extends Model
 {
 
-  protected $table= "articulo";
+  protected $table= "articulos";
   protected $primaryKey ="idarticulo";
  
   protected $filable = [

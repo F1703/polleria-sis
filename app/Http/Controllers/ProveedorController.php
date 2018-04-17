@@ -5,7 +5,7 @@ namespace polleria\Http\Controllers;
 use Illuminate\Http\Request;
 
 use polleria\Http\Requests;
-use polleria\Persona;
+use polleria\Proveedor;
 use Illuminate\Support\Facades\Redirect;
 use polleria\Http\Requests\PersonaFormRequest;
 use DB;
@@ -22,12 +22,12 @@ class ProveedorController extends Controller
     public function index(Request $request){
       if ($request) {
         $query= trim($request->get('searchText'));
-        $personas=DB::table('persona')
-          ->where('nombre','like','%'.$query.'%')
-          ->where('tipo_persona','=','proveedor')
-          ->orwhere('num_documento','like','%'.$query.'%')
-          ->where('tipo_persona','=','proveedor')
-          ->orderby('idpersona','desc')
+        $personas=DB::table('proveedors')
+          ->where('razonsocial','like','%'.$query.'%')
+         // ->where('tipo_persona','=','proveedor')
+          ->orwhere('cuit','like','%'.$query.'%')
+        //  ->where('tipo_persona','=','proveedor')
+          ->orderby('idproveedor','desc')
           ->paginate(9)
           ;
           return view('compras.proveedor.index',['personas'=>$personas,'searchText'=>$query]);
@@ -37,14 +37,15 @@ class ProveedorController extends Controller
       return view('compras.proveedor.create');
     }
     public function store(PersonaFormRequest $request){
-      $persona= new Persona;
-      $persona->tipo_persona = 'proveedor';
-      $persona->nombre= $request->get('nombre');
-      $persona->tipo_documento= $request->get('tipo_documento');
-      $persona->num_documento= $request->get('num_documento');
+      $persona= new Proveedor;
+     // $persona->tipo_persona = 'proveedor';
+      $persona->razonsocial= $request->get('razonsocial');
+     // $persona->tipo_documento= $request->get('tipo_documento');
+      $persona->cuit= $request->get('cuit');
       $persona->direccion= $request->get('direccion');
       $persona->telefono= $request->get('telefono');
       $persona->email= $request->get('email');
+      $persona->estado= "activo";
       $persona->save();
       return Redirect::to('compras/proveedor');
 
@@ -58,10 +59,10 @@ class ProveedorController extends Controller
 
     }
     public function update(PersonaFormRequest $request, $id){
-      $persona = Persona::findOrFail($id);
-      $persona->nombre= $request->get('nombre');
-      $persona->tipo_documento= $request->get('tipo_documento');
-      $persona->num_documento= $request->get('num_documento');
+      $persona = Proveedor::findOrFail($id);
+      $persona->razonsocial= $request->get('razonsocial');
+    //  $persona->tipo_documento= $request->get('tipo_documento');
+      $persona->cuit= $request->get('cuit');
       $persona->direccion= $request->get('direccion');
       $persona->telefono= $request->get('telefono');
       $persona->email= $request->get('email');
@@ -71,8 +72,8 @@ class ProveedorController extends Controller
 
 
     public function destroy($id){
-      $persona = Persona::findOrFail($id);
-      $persona->tipo_persona="Inactivo";
+      $persona = Proveedor::findOrFail($id);
+      $persona->estado="Inactivo";
       $persona->update();
       return Redirect::to('compras/proveedor');
     }

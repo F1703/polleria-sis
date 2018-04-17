@@ -6,33 +6,10 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-group">
           <label for="proveedor">Proveedor</label>
-          <p>{{$ingreso->nombre}}</p>
+          <p>{{$ingreso->razonsocial}}</p>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="tip_comprobante">Comprobante</label>
-          <p>{{$ingreso->tipo_comprobante}}</p>
-
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="serie_comprobante">Serie Comprobante</label>
-          <p>{{$ingreso->serie_comprobante}}</p>
-
-        </div>
-      </div>
-
-
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="num_comprobante">Num Comprobante</label>
-          <p>{{$ingreso->num_comprobante}}</p>
-
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="panel panel-primary">

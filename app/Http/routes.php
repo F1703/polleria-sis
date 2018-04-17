@@ -22,8 +22,13 @@ Route::resource('compras/proveedor','ProveedorController');
 Route::resource('compras/ingreso','IngresoController');
 Route::resource('ventas/venta','VentaController');
 Route::resource('seguridad/usuario','UsuarioController');
+Route::resource('ventas/cliente/cuenta','CuentaController');
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/{slug?}', 'HomeController@index');
+Route::post('cuenta/ajax',[
+  'uses'  =>  'CuentaController@ajax',
+  'as'    =>  'cuenta.ajax',
+]);

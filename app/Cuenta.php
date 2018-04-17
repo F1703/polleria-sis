@@ -1,6 +1,4 @@
-<?php
-
-namespace polleria;
+<?php namespace polleria;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,10 +15,11 @@ class Cuenta extends Model
   ];
     public function cliente()
     {
-        return $this->belongsTo('App\Cliente');
+        return $this->belongsTo('polleria\Cliente');
     }
     public function venta()
     {
-        return $this->belongsToMany('App\Venta');
+
+        return $this->belongsToMany('polleria\Venta');
     }
-}
+} 

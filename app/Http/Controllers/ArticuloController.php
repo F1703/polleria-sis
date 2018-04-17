@@ -20,8 +20,8 @@ class ArticuloController extends Controller
     public function index(Request $request){
       if ($request) {
         $query= trim($request->get('searchText'));
-        $articulos=DB::table('articulo as a')
-          ->join('categoria as c','a.idcategoria','=','c.idcategoria')
+        $articulos=DB::table('articulos as a')
+          ->join('categorias as c','a.idcategoria','=','c.idcategoria')
           ->select('a.idarticulo','a.nombre','a.codigo','a.stock','c.nombre as categoria','a.descripcion','a.imagen','a.estado')
           ->where('a.nombre','like','%'.$query.'%')
           ->orwhere('a.codigo','like','%'.$query.'%')
@@ -33,7 +33,7 @@ class ArticuloController extends Controller
     }
 
     public function create(){
-      $categorias = DB::table('categoria')->where('condicion','=','1')->get();
+      $categorias = DB::table('categorias')->where('condicion','=','1')->get();
       return view('almacen.articulo.create',['categorias'=>$categorias]);
     }
 
@@ -58,10 +58,10 @@ class ArticuloController extends Controller
     public function show($id){
       return view('almacen.articulo.show',['articulo'=>Articulo::findOrFail($id)]);
     }
-
+ 
     public function edit($id){
       $articulo=Articulo::findOrFail($id);
-      $categorias=DB::table('categoria')->where('condicion','=','1')->get();
+      $categorias=DB::table('categorias')->where('condicion','=','1')->get();
       return view('almacen.articulo.edit',['articulo'=>$articulo,'categorias'=>$categorias]);
 
     }

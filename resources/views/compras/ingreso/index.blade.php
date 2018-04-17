@@ -13,13 +13,9 @@
       <div class="table responsibe">
         <table class="table table-striped table-condensed table-hover table-bordered">
           <thead>
-
+ 
             <th>Fecha</th>
             <th>Proveedor</th>
-            <th>Tipo comprobante</th>
-            {{-- <th>Serie comprobante</th>
-            <th>Num comprobante</th> --}}
-            <th>Impuesto</th>
             <th>Total</th>
             <th>Estado</th>
 
@@ -28,12 +24,8 @@
           @foreach ($ingresos as $ing)
             <tr>
 
-              <td>{{$ing->fecha_hora}}</td>
-              <td>{{$ing->nombre}}</td>
-              <td>{{$ing->tipo_comprobante.': '.$ing->serie_comprobante.'-'.$ing->num_comprobante}}</td>
-              {{-- <td>{{$ing->serie_comprobante}}</td>
-              <td>{{$ing->num_comprobante}}</td> --}}
-              <td>{{$ing->impuesto}}</td>
+              <td>{{$ing->fecha}}</td>
+              <td>{{$ing->razonsocial}}</td>
               <td>{{$ing->total}}</td>
               <td>{{$ing->estado}}</td>
               <td>

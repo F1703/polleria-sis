@@ -19,41 +19,25 @@
   {!!Form::open(array('url'=>'ventas/venta','method'=>'POST','autocomplete'=>'off'))!!}
   {!!Form::token()!!}
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+        <div class="form-group"> 
+          <div class="radio">
+            <label><input type="radio" id="acuenta" name="optradio">A CUENTA</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
         <div class="form-group">
-          <label for="idpersona">Cliente</label>
-          <select class="form-control selectpicker" data-live-search="true" name="idpersona" id="idpersona">
+          <label for="idcliente">Cliente</label>
+          <select  class="form-control selectpicker" data-live-search="true" name="idcliente" id="idcliente">
             @foreach ($personas as $persona)
-              <option value="{{$persona->idpersona}}">{{$persona->nombre  }}</option>
+              <option value="{{$persona->idcliente}}">{{$persona->nombre  }}</option>
             @endforeach
           </select>
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="tipo_comprobante">Comprobante</label>
-          <select class="form-control" name="tipo_comprobante">
-            <option value="Boleta">Boleta</option>
-            <option value="Factura">Factura</option>
-            <option value="Tikect">Tikect</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="serie_comprobante">Serie Comprobante</label>
-          <input type="text" name="serie_comprobante" value="{{old('serie_comprobante')}}" class="form-control" placeholder="serie comprobante ...">
-        </div>
-      </div>
-
-
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <div class="form-group">
-          <label for="num_comprobante">Num Comprobante</label>
-          <input type="text" name="num_comprobante" value="{{old('num_comprobante')}}" class="form-control" placeholder="num comprobante ..." required >
-        </div>
-      </div>
     </div>
     <div class="row">
       <div class="panel panel-primary">
@@ -79,14 +63,14 @@
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div class="form-group">
               <label for="pstock">Stock</label>
-              <input type="number" name="pstock" value="" id="pstock" class="form-control" placeholder="stock" disabled>
+              <input type="number" name="pstock" value="{{$articulo->stock}}"" id="pstock" class="form-control" placeholder="stock" disabled>
             </div>
           </div>
           {{-- precioventa --}}
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div class="form-group">
               <label for="pprecio_venta">Precio Venta</label>
-              <input type="number" disabled name="pprecio_venta" value="" id="pprecio_venta" class="form-control" placeholder="P. Venta">
+              <input type="number" disabled name="pprecio_venta" value="{{$articulo->precio_promedio}}" id="pprecio_venta" class="form-control" placeholder="P. Venta">
             </div>
           </div>
           {{-- descuento --}}
@@ -136,15 +120,35 @@
         </div>
       </div>
     </div>
+
+            <div class="form-group" hidden="">
+              <label for="pcantidad">Cantidad</label>
+              <input type="number" name="seleccionado" value="0" id="cliente_seleccionado" class="form-control" placeholder="cantidad">
+            </div>
   {!!Form::close()!!}
+
 
 
   @push('scripts')
     <script>
+    var checked = false;
       $(document).ready(function(){
         $('#bt_add').click(function(){
           agregar();
         })
+        $('#acuenta').click(function(){
+          if(checked){
+          $("#cliente_seleccionado").val(0);
+          $("#acuenta").removeAttr("checked");
+          checked=false;
+          }else{
+          $("#acuenta").attr("checked");
+          $("#cliente_seleccionado").val(1);
+          checked=true;
+          }
+        })
+      //document.getElementById("acuenta").che = true;  
+          // $("#acuenta").attr("checked","checked");
       });
 
       total =0;

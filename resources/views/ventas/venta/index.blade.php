@@ -15,11 +15,7 @@
           <thead>
 
             <th>Fecha</th>
-            <th>Cliente</th>
-            <th>comprobante</th>
-            {{-- <th>Serie comprobante</th>
-            <th>Num comprobante</th> --}}
-            <th>Impuesto</th>
+            <!--th>Cliente</th-->
             <th>Total</th>
             <th>Estado</th>
 
@@ -28,12 +24,7 @@
           @foreach ($ventas as $ven)
             <tr>
 
-              <td>{{$ven->fecha_hora}}</td>
-              <td>{{$ven->nombre}}</td>
-              <td>{{$ven->tipo_comprobante.': '.$ven->serie_comprobante.'-'.$ven->num_comprobante}}</td>
-              {{-- <td>{{$ven->serie_comprobante}}</td>
-              <td>{{$ven->num_comprobante}}</td> --}}
-              <td>{{$ven->impuesto}}</td>
+              <td>{{$ven->fecha}}</td>
               <td>{{$ven->total_venta}}</td>
               <td>{{$ven->estado}}</td>
               <td>

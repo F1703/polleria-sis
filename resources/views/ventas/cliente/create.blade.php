@@ -33,17 +33,6 @@
       </div>
 
 
-
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <div class="form-group">
-          <label for="">Documento</label>
-          <select class="form-control" name="tipo_documento">
-            <option value="DNI">DNI</option>
-            <option value="RUC">RUC</option>
-            <option value="PAS">PAS</option>
-          </select>
-        </div>
-      </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
         <div class="form-group">
           <label for="num_documento">Documento</label>

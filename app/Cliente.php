@@ -18,8 +18,8 @@ class Cliente extends Model
       'email',
       'estado'
     ];
-    public function articulo()
+    public function cuenta()
     {
-        return $this->hasOne('App\Cuenta');
+        return $this->hasOne('polleria\Cuenta');
     }
 }

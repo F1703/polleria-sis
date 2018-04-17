@@ -15,7 +15,6 @@
           <thead>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Tipo Doc.</th>
             <th>Nun Doc.</th>
             <th>Telefono</th>
             <th>Email</th>
@@ -24,15 +23,15 @@
           </thead>
           @foreach ($personas as $per)
             <tr>
-              <td>{{$per->idpersona}}</td>
+              <td>{{$per->idcliente}}</td>
               <td>{{$per->nombre}}</td>
-              <td>{{$per->tipo_documento}}</td>
-              <td>{{$per->num_documento}}</td>
+              <td>{{$per->documento}}</td>
               <td>{{$per->telefono}}</td>
               <td>{{$per->email}}</td>
               <td>
-                <a href="{{URL::action('ClienteController@edit',$per->idpersona)}}"><button class="btn btn-info">Editar</button></a>
-                <a href="" data-target="#modal-delete-{{$per->idpersona}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+                <a href="{{URL::action('CuentaController@show',$per->idcliente)}}"><button class="btn btn-default">Cuenta</button></a>
+                <a href="{{URL::action('ClienteController@edit',$per->idcliente)}}"><button class="btn btn-info">Editar</button></a>
+                <a href="" data-target="#modal-delete-{{$per->idcliente}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
               </td>
             </tr>
             @include('ventas.cliente.modal')
