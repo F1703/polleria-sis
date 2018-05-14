@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'nombre'=>'articulo_'.$i,
             'stock'=>$faker->randomDigitNotNull,
             'descripcion'=>'articulo_'.$i,
-            'estado'=>'Activo',
+            'estado'=>'activo',
             'idcategoria'=>3,
           ]);
         }
