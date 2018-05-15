@@ -24,7 +24,7 @@ class VentaController extends Controller
     //
     public function __construct(){
       $this->middleware('auth');
-    } 
+    }
 
     public function index(Request $request){
       if ($request) {
@@ -45,7 +45,7 @@ class VentaController extends Controller
       }
     }
 
-    public function create(){ 
+    public function create(){
       $personas=DB::table('clientes')->where('estado','=','activo')->get();
       $articulos=DB::table('articulos as art')
       ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
@@ -57,9 +57,9 @@ class VentaController extends Controller
       ->get();
       return view('ventas.venta.create',['personas'=>$personas,'articulos'=>$articulos]);
     }
- 
+
     public function store(VentaForRequest $request){
-      //dd($request);
+      dd($request);
       try {
         DB::beginTransaction();
         $venta=new Venta;
@@ -68,7 +68,7 @@ class VentaController extends Controller
      //   $venta->serie_comprobante=$request->get('serie_comprobante');
      //   $venta->num_comprobante=$request->get('num_comprobante');
         $venta->total_venta=$request->get('total_venta');
- 
+
         $mytime= Carbon::now('America/Argentina/Tucuman');
         $venta->fecha = $mytime->toDateTimeString();
       //  $venta->impuesto='18';
@@ -118,7 +118,7 @@ class VentaController extends Controller
         DB::rollback();
       }
       return Redirect::to('ventas/venta');
-    } 
+    }
 
     public function show($id){
 
@@ -129,7 +129,7 @@ class VentaController extends Controller
       ->join('detalle_venta as dv','v.idventa','=','dv.idventa')
       ->select('v.idventa','v.fecha','v.estado','v.total_venta')
       ->where('v.idventa','=',$id)
-        ->first();        
+        ->first();
       //dd($venta);
 
       $detalles=DB::table('detalle_venta as d')

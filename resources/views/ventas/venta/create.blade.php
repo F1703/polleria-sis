@@ -159,13 +159,16 @@
 
       function mostrarValores(){
         datosart=document.getElementById('pidarticulo').value.split('_');
+        // console.log(datosart);
+        alert(datosart);
         $("#pstock").val(datosart[1]);
         $("#pprecio_venta").val(datosart[2]);
+
       }
 
       function agregar(){
          datosart=document.getElementById('pidarticulo').value.split('_');
-        //  alert(datosart);
+         // alert(datosart);
           idarticulo=datosart[0];
           articulo=$("#pidarticulo option:selected").text();
           cantidad=$("#pcantidad").val();
@@ -197,6 +200,8 @@
                       '</tr>';
               contador++;
               limpiar();
+              var nuevostock= stock-cantidad;
+              $("#pstock").val(nuevostock);
               $("#total").html("$ "+total);
               $("#total_venta").val(total);
               evaluar();
