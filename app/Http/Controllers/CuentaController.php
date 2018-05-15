@@ -71,7 +71,7 @@ class CuentaController extends Controller
       ->where('c.idcuenta','=',$request->idcuenta)
       ->update(['c.saldo' => $saldo]);
 
-      return $Pago;
+      return Response()->json($Pago);
  
     }
 

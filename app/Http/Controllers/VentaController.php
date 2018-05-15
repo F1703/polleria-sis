@@ -118,17 +118,19 @@ class VentaController extends Controller
         DB::rollback();
       }
       return Redirect::to('ventas/venta');
-    }
+    } 
 
     public function show($id){
+
       $venta=DB::table('ventas as v')
-      ->join('cuenta_venta as cv','v.idventa','=','cv.idventa')
-      ->join('cuentas as c','cv.idcuenta','=','c.idcuenta')
-      ->join('clientes as p','c.idcliente','=','p.idcliente')
+      //->join('cuenta_venta as cv','v.idventa','=','cv.idventa')
+     // ->join('cuentas as c','cv.idcuenta','=','c.idcuenta')
+   //   ->join('clientes as p','c.idcliente','=','p.idcliente')
       ->join('detalle_venta as dv','v.idventa','=','dv.idventa')
-      ->select('v.idventa','v.fecha','p.nombre','v.estado','v.total_venta')
+      ->select('v.idventa','v.fecha','v.estado','v.total_venta')
       ->where('v.idventa','=',$id)
-        ->first();
+        ->first();        
+      //dd($venta);
 
       $detalles=DB::table('detalle_venta as d')
       ->join('articulos as a','d.idarticulo','=','a.idarticulo')

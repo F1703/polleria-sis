@@ -144,9 +144,9 @@
                           '<td name="fecha[]" value="">Hoy</td>'+
                         //  '<td>'+subtotal[contador]+'</td>'+
                       '</tr>';
-     // $.each(msg,function(index,el){
-        alert(msg.monto);
-     // });
+      $.each(msg,function(index,el){
+        alert(el.monto);
+      });
               contador++;
               limpiar();
 
