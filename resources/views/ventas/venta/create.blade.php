@@ -193,7 +193,7 @@
               var fila='<tr class="selected" id="fila'+contador+'"> '+
                           '<td><button type="button" class="btn btn-warning" onclick="eliminar('+contador+');">X</button> </td>'+
                           '<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</input></td>'+
-                          '<td><input type="number" name="cantidad[]" value="'+cantidad+'"></td>'+
+                          '<td><input id="cantidad'+contador+'" type="number" name="cantidad[]" value="'+cantidad+'"></td>'+
                           '<td><input type="number" name="precio_venta[]" value="'+precio_venta+'"></td>'+
                           '<td><input type="number" name="descuento[]" value="'+descuento+'"></td>'+
                           '<td>'+subtotal[contador]+'</td>'+
@@ -231,6 +231,10 @@
         total=total-subtotal[index];
         $("#total").html("$ "+total);
         $("#total_venta").val(total);
+        stock=$("#pstock").val();
+        cantidad=$("#cantidad"+index).val();
+        nuevostock=parseInt(stock)+parseInt(cantidad);
+        $("#pstock").val(nuevostock);
         $("#fila"+index).remove();
         evaluar();
       }
