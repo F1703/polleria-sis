@@ -4,7 +4,7 @@ namespace polleria\Http\Requests;
 
 use polleria\Http\Requests\Request;
 
-class PersonaFormRequest extends Request
+class ProveedorFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

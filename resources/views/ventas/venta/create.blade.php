@@ -175,8 +175,17 @@
           precio_venta=$("#pprecio_venta").val();
           // if (idarticulo!="" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!="") {
           // if(cantidad<stock){
+
+
+
             if (parseInt(cantidad)<=parseInt(stock) && parseInt(cantidad)>0) {
-              subtotal[contador]=(cantidad*precio_venta-descuento);
+              if(descuento!=0){
+              desc = (cantidad*precio_venta)*descuento/100;
+
+              subtotal[contador]=(cantidad*precio_venta)-desc;
+              }else{
+              subtotal[contador]=(cantidad*precio_venta);
+              }
               total=total+subtotal[contador];
               var fila='<tr class="selected" id="fila'+contador+'"> '+
                           '<td><button type="button" class="btn btn-warning" onclick="eliminar('+contador+');">X</button> </td>'+
