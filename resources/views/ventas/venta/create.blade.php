@@ -169,8 +169,8 @@
           idarticulo=datosart[0];
           articulo=$("#pidarticulo option:selected").text();
           cantidad=$("#pcantidad").val();
-          // descuento=$("#pdescuento").val();
-          descuento =0;
+          descuento=$("#pdescuento").val();
+          //descuento =0;
           stock=$("#pstock").val();
           precio_venta=$("#pprecio_venta").val();
           // if (idarticulo!="" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!="") {

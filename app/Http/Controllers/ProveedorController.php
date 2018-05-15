@@ -36,7 +36,7 @@ class ProveedorController extends Controller
     public function create(){
       return view('compras.proveedor.create');
     }
-    public function store(PersonaFormRequest $request){
+    public function store(ProveedorFormRequest $request){
       $persona= new Proveedor;
      // $persona->tipo_persona = 'proveedor';
       $persona->razonsocial= $request->get('razonsocial');

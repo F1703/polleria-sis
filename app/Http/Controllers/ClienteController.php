@@ -34,7 +34,7 @@ class ClienteController extends Controller
     public function create(){
       return view('ventas.cliente.create');
     }
-    public function store(PersonaFormRequest $request){
+    public function store(ClienteFormRequest $request){
       $persona= new Cliente;
      // $persona->tipo_persona = 'cliente';
       $persona->nombre= $request->get('nombre');
