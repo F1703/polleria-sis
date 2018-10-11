@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class ArticulosTable extends Migration
 {
@@ -12,17 +12,16 @@ class ArticulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('articulos', function(Blueprint $table)
-        {
+        Schema::create('articulos', function (Blueprint $table) {
+            $table->increments('idarticulo');
             $table->string('codigo');
             $table->string('nombre');
-            $table->increments('idarticulo');
             $table->string('descripcion');
             $table->integer('stock');
             $table->string('estado');
             $table->string('imagen');
             $table->integer('idcategoria')->unsigned();
-            $table->foreign('idcategoria')->references('idcategoria')->on('idcategoria')->ondelete('cascade');
+            $table->foreign('idcategoria')->references('idcategoria')->on('categorias')->ondelete('cascade');
             $table->timestamps();
         });
     }

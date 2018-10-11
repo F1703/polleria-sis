@@ -7,18 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Articulo extends Model
 {
 
-  protected $table= "articulos";
-  protected $primaryKey ="idarticulo";
- 
-  protected $filable = [
-  'idcategoria',
-  'codigo',
-  'nombre',
-  'stock',
-  'descripcion',
-  'imagen',
-  'estado'
-  ];
+    protected $table      = "articulos";
+    protected $primaryKey = "idarticulo";
+
+    protected $filable = [
+        'idcategoria',
+        'codigo',
+        'nombre',
+        'stock',
+        'descripcion',
+        'imagen',
+        'estado',
+    ];
 
     public function categoria()
     {

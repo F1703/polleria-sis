@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class VentasTable extends Migration
 {
@@ -12,8 +12,7 @@ class VentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ventas', function(Blueprint $table)
-        {
+        Schema::create('ventas', function (Blueprint $table) {
             $table->increments('idventa');
             $table->float('total_venta');
             $table->date('fecha');
@@ -21,7 +20,7 @@ class VentasTable extends Migration
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *

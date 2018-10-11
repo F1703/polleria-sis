@@ -160,7 +160,6 @@
       function mostrarValores(){
         datosart=document.getElementById('pidarticulo').value.split('_');
         // console.log(datosart);
-        alert(datosart);
         $("#pstock").val(datosart[1]);
         $("#pprecio_venta").val(datosart[2]);
 

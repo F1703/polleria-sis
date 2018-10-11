@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CategoriasTable extends Migration
 {
@@ -12,10 +12,9 @@ class CategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function(Blueprint $table)
-        {
-            $table->string('nombre');
+        Schema::create('categorias', function (Blueprint $table) {
             $table->increments('idcategoria');
+            $table->string('nombre');
             $table->string('descripcion');
             $table->boolean('condicion');
             $table->timestamps();

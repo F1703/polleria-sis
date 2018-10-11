@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CuentasTable extends Migration
 {
@@ -12,12 +12,11 @@ class CuentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuentas', function(Blueprint $table)
-        {
+        Schema::create('cuentas', function (Blueprint $table) {
             $table->increments('idcuenta');
             $table->float('saldo');
             $table->integer('idcliente')->unsigned();
-            $table->foreign('idcliente')->references('id')->on('clientes')->ondelete('cascade');
+            $table->foreign('idcliente')->references('idcliente')->on('clientes')->ondelete('cascade');
             $table->timestamps();
         });
     }

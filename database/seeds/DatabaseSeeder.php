@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use DB as DB;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,15 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(SeederUsers::class);
+        $this->call(SeederCategories::class);
+        $this->call(SeederArticulos::class);
+        $this->call(SeederProveedores::class);
+        $this->call(SeederClientes::class);
         // $this->call();
 
-        \DB::table('users')->insert([
-          'name' => 'franco',
-          // 'email' => $faker->safeEmail,
-          'email' => 'franco@gmail.com',
-          'password' => bcrypt('franco'),
-          'remember_token' => str_random(10),
-        ]);
     }
 }
